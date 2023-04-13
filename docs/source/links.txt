@@ -1,0 +1,12 @@
+This file serves to keep track of all used links uniformly across files 
+Create links in rst like this: `Kotlin <https://kotlinlang.org>`_
+
+Application		Target						link ready to copy
+
+ - Kotlin          	Homepage            	-	`Kotlin <https://kotlinlang.org>`_
+ - Thunder Client  	Microsoft Store     	-	`Thunder Client <https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client>`_
+ - SurrealDB       	Homepage            	-	`SurrealDB <https://surrealdb.com>`_
+ - Astro			Homepage				-	`Astro <https://astro.build/>`_
+ - Svelte			Homepage				-	`Svelte <https://svelte.dev/>`_
+ - Deno				Homepage				-   `Deno <https://deno.land/>`_
+ - Checkpoint       Homepage                -   `Checkpoint <https://www.checkpoint.com/>`_
