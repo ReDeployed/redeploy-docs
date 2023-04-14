@@ -27,3 +27,4 @@ Contents
 	database
 	webdesign
 	checkpoint
+	about.rst
