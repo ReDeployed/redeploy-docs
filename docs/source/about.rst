@@ -6,10 +6,12 @@
 ===================================
 
 .. ---------- Big Picture ----------
+
 Big Picture
 -----------
 
 .. ---------- Why we use what we use ---------- 
+
 Why we use what we use
 ----------------------
 
@@ -72,5 +74,6 @@ Why we use what we use
 
 
 .. ---------- Why we use what we use ---------- 
+
 Why we use what we use
 ----------------------

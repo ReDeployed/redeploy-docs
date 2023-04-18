@@ -28,3 +28,4 @@ Contents
 	webdesign
 	checkpoint
 	about.rst
+	android.rst
