@@ -67,4 +67,4 @@ Integration
 -----------
 
 .. note::
-	`Comming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_
+	`Coming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_
