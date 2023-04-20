@@ -25,6 +25,7 @@ From https://surrealdb.com
 With `SurrealDB <https://surrealdb.com>`_ we aim to learn about a new, bleeding-edge database thats unlike anything we have worked with before. The schemaless ability of Surreal eases data handling and gives us as all the flexibility we could ask for, wherever we need it. The capability to launch `SurrealDB <https://surrealdb.com>`_ on Docker with a singe command cuts out the tediously and error-prone tasks. 
 
 .. ---------- http ----------
+
 `http <https://surrealdb.com/docs/integration/http>`_
 -----------------------------------------------------
 
@@ -37,8 +38,9 @@ With `SurrealDB <https://surrealdb.com>`_ we aim to learn about a new, bleeding-
 	:target: https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client
 
 .. ---------- Testing with Thunder Client ----------
+
 Testing with `Thunder Client <https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client>`_
-___________________________
+_________________________________________________________________________________________________________________
 
 `Thunder Client <https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client>`_ allows us to send http requests from VisualStudio Code. We can use this to test the our code as well as the responsiveness of our database server.
 
@@ -60,8 +62,9 @@ We can even use `Thunder Client <https://marketplace.visualstudio.com/items?item
 These tests can be saved and repeated automatically as well. Setting them up requires only filling 3 fields.
 
 .. ---------- Integration ----------
+
 Integration
 -----------
 
 .. note::
-	`Comming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_
+	`Coming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_

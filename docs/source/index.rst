@@ -27,3 +27,5 @@ Contents
 	database
 	webdesign
 	checkpoint
+	about.rst
+	android.rst
