@@ -1,4 +1,4 @@
 ReDeploy
 ========
 
-https://docs.readthedocs.io/en/stable/tutorial/
+https://redeploy-docs.readthedocs.io/en/latest/
