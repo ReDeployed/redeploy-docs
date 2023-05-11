@@ -2,8 +2,9 @@
 	:scale: 20%
 	:align: center
 
+*******************************************
 `Checkpoint <https://www.checkpoint.com/>`_ 
-===========================================
+*******************************************
 
 To make a proper Manager for `Checkpoint <https://www.checkpoint.com/>`_ appliances we need to understand the `Checkpoint <https://www.checkpoint.com/>`_ API. Helping us with that are the CCSA (`Checkpoint <https://www.checkpoint.com/>`_ Certified Security Administrator) and the CCSE (`Checkpoint <https://www.checkpoint.com/>`_ Certified Security Expert) courses, with whom we will be capable of understanding said API.
 Besides the understanding, we need an environment fitting to the IP-Addresses coupled to the mandatory licenses for `Checkpoint <https://www.checkpoint.com/>`_ appliances.

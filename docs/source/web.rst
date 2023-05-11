@@ -1,24 +1,24 @@
-
-Web Design
-==========
+*************
+Web Interface
+*************
 .. ---------- Concept ----------
 
 Concept
--------
+=======
 
 For the frontend of our web application, we use `Astro <https://astro.build/>`_, a modern static site generator that enables dynamic components and client-side rendering, making it an ideal choice for building performant and scalable web applications. We complement `Astro <https://astro.build/>`_ with `Svelte <https://svelte.dev/>`_ as our frontend framework, which emphasizes small bundle sizes and fast performance, allowing us to build reactive user interfaces and single-page applications. For our backend, we use `Svelte <https://svelte.dev/>`_.js, which is typically used as a frontend framework, but can also be used on the backend with Sapper or other similar frameworks. `Svelte <https://svelte.dev/>`_.js allows us to build reactive and scalable applications on both the frontend and backend. Additionally, we use `Deno <https://deno.land/>`_, a secure runtime for JavaScript and TypeScript that allows us to build server-side applications with ease. `Deno <https://deno.land/>`_ provides built-in security features and a modern JavaScript API, making it an excellent choice for building secure and performant server-side applications.
 
 .. ---------- Frameworks ----------
 
 JavaScript Frameworks and their Advantages
-------------------------------------------
+==========================================
 
 JavaScript frameworks like `Astro <https://astro.build/>`_ and `Svelte <https://svelte.dev/>`_ simplify the process of building web applications by providing a powerful set of tools and abstractions. `Astro <https://astro.build/>`_ is a modern static site generator that allows for dynamic content, while `Svelte <https://svelte.dev/>`_ is a reactive frontend framework for building high-performance applications. These frameworks offer improved productivity, maintainability, and performance, resulting in consistent, maintainable codebases that are easier to work with and debug. By using these frameworks, developers can build engaging web applications and provide a better user experience for their users.
 
 .. ---------- Overview of the Project ----------
 
 Overview of the Project
------------------------
+=======================
 
 **Current Main components:**
 
@@ -34,9 +34,10 @@ Overview of the Project
 	:target: https://astro.build/
 
 `Astro <https://astro.build/>`_
--------------------------------
+===============================
 
-**How we use Astro**
+How we use Astro
+----------------
 
 On average a basic `Astro <https://astro.build/>`_ project consists of these following files and their folders. Their importance and uses will be explained briefly:
 
@@ -133,9 +134,10 @@ Overall, the package.json file is an essential part of any `Astro <https://astro
 	:target: https://svelte.dev/
 
 `Svelte <https://svelte.dev/>`_
--------------------------------
+===============================
 
-**How we use Svelte**
+How we use Svelte
+-----------------
 
 `Svelte <https://svelte.dev/>`_ is a modern JavaScript framework for building web applications. Unlike other frameworks that run in the browser, `Svelte <https://svelte.dev/>`_ compiles your application into highly efficient vanilla JavaScript code that runs faster and takes up less space, resulting in better performance and a smaller file size.
 
@@ -147,9 +149,10 @@ Overall, the package.json file is an essential part of any `Astro <https://astro
 	:target: https://deno.land/
 
 `Deno <https://deno.land/>`_
-----------------------------
+============================
 
-**How we use Deno**
+How we use Deno
+---------------
 
 `Deno <https://deno.land/>`_ can be used in combination with `Astro <https://astro.build/>`_ to provide server-side functionality for your web application. `Astro <https://astro.build/>`_ supports serverless functions, which are essentially small JavaScript scripts that run on the server and can perform tasks such as processing form data, accessing a database, or calling an external API.
 To use `Deno <https://deno.land/>`_ with `Astro <https://astro.build/>`_ and serverless functions, you can write your server-side code in `Deno <https://deno.land/>`_ and define a serverless function that handles incoming requests and returns the response. You can then use this serverless function in your `Astro <https://astro.build/>`_ components to fetch dynamic data and render content.
@@ -158,7 +161,7 @@ To use `Deno <https://deno.land/>`_ with `Astro <https://astro.build/>`_ and ser
 .. ---------- Overview of the Website ----------
 
 Overview of the Website
------------------------
+=======================
 
 **Current Look of the WebPage**
 

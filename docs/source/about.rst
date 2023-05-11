@@ -2,8 +2,9 @@
 	:scale: 20%
 	:align: center
 
-**About ReDeploy**
-===================================
+**************
+About ReDeploy
+**************
 
 .. ---------- Big Picture ----------
 
@@ -39,7 +40,7 @@ Why we use what we use
 
 .. ---------- Astro ---------- 
 .. image:: /img/dependencies/astro/astro-logo-dark.png
-	:scale: 5%
+	:scale: 50%
 	:align: right
 	:class: float
 	:target: https://astro.build/
@@ -69,11 +70,3 @@ Why we use what we use
 **Checkpoint**
 
 "..."
-
-
-
-
-.. ---------- Why we use what we use ---------- 
-
-Why we use what we use
-----------------------
