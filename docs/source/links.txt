@@ -10,3 +10,6 @@ Application		Target						link ready to copy
  - Svelte			Homepage				-	`Svelte <https://svelte.dev/>`_
  - Deno				Homepage				-   `Deno <https://deno.land/>`_
  - Checkpoint       Homepage                -   `Checkpoint <https://www.checkpoint.com/>`_
+
+ - webserver.js     GitHub                  -   `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_
+ - handler.js		GitHub					-	`handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js`

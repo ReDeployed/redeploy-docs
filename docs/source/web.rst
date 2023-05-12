@@ -137,6 +137,28 @@ How we use Deno
 `Deno <https://deno.land/>`_ can be used in combination with `Astro <https://astro.build/>`_ to provide server-side functionality for your web application. `Astro <https://astro.build/>`_ supports serverless functions, which are essentially small JavaScript scripts that run on the server and can perform tasks such as processing form data, accessing a database, or calling an external API.
 To use `Deno <https://deno.land/>`_ with `Astro <https://astro.build/>`_ and serverless functions, you can write your server-side code in `Deno <https://deno.land/>`_ and define a serverless function that handles incoming requests and returns the response. You can then use this serverless function in your `Astro <https://astro.build/>`_ components to fetch dynamic data and render content.
 
+.. ---------- API ----------
+
+API
+---
+
+**Using the API**
+
+To use an API, a software developer typically needs to know the URL (Uniform Resource Locator) of the API, the authentication method (if required), and the parameters that need to be passed to the API to retrieve or manipulate data. Once this information is obtained, the developer can use it to make requests to the API and receive responses.
+
+**How the API works**
+
+Our API consists of our Checkpoint-SMS which we access over the gaia_api with the appropriate version and command. In this case we use the “show-interfaces” command which shows us the interfaces of the appropriate device or devices.
+
+.. image:: /img/webdesign/api/thunderclient01.png
+	:scale: 100%
+	:align: center
+
+After we send our Request we receive following text in full JSON-Format which we can access later and list in the config-subsite of the website.
+
+.. image:: /img/webdesign/api/thunderclient02.png
+	:scale: 100%
+	:align: center
 
 .. ---------- Overview of the Website ----------
 

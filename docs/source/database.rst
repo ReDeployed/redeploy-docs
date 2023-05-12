@@ -28,7 +28,110 @@ From https://surrealdb.com
 `http <https://surrealdb.com/docs/integration/http>`_
 -----------------------------------------------------
 
-`SurrealDB <https://surrealdb.com>`_ allows Integration via HTTP&Rest without further configuration. These calls can be made by every relevant programming language and framework, including Android Apps build with `Kotlin <https://www.youtube.com/watch?v=XLgYKc_syBI>`_.
+`SurrealDB <https://surrealdb.com>`_ allows Integration via HTTP&Rest without further configuration. These calls can be made by every relevant programming language and framework, including Android Apps build with `Kotlin <https://www.youtube.com/watch?v=XLgYKc_syBI>`_. Yet, given `SurrealDB <https://surrealdb.com>`_ state of development, the build in http functionality does not satisfy our needs concerning authentication or HTTPS.
+
+.. image:: /img/dependencies/deno/deno.png
+	:scale: 5%
+	:align: right
+	:class: float
+	:target: https://deno.land/
+
+.. ---------- Deno Webserver ----------
+
+`Deno <https://deno.land/>`_ Webserver
+_______________________________________
+
+.. image:: /img/database/http/overview.png
+	:scale: 100%
+	:align: center
+	:class: float
+
+The build in `Deno <https://deno.land/>`_ webserver acts as proxy to the `SurrealDB <https://surrealdb.com>`_ database. This allows configurations not yet implemented in `SurrealDB <https://surrealdb.com>`_ like HTTPS and more complex authentication. Overall, database interactions still stay simple and we do not lose any functionality. 
+
+The Deno Webserver is startet using the `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_ file. This file covers both webserver configuration (Port, ...) and accepted paths and their corresponding functions. These functions are imported from the `handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js` file. They are responsible for the database interaction and returns either the error code or the newly set data if the interaction completed without errors.
+
+**Starting the Webserver**
+
+As mentioned above, starting the webserver is covered by the `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_ file like this:
+
+.. code-block:: js
+	:caption: Starting the webserver
+	:emphasize-lines: 3, 4, 5
+
+	const port = 8080;
+
+	const server = Deno.listen({
+		port: port, 
+	});
+
+	console.log("Webserver running on " + port);
+
+**Sending HTTP requests**
+
+This is covered by the client.js file. It sends HTTP requests to the webserver.
+
+.. code-block:: js
+	:caption: HTTP request example
+
+	async api(path="") {
+		let url = `${PROTOCOL}://${IP}:${PORT}/${path}`;
+		try {
+			const response = await fetch(url);
+			if (response.ok) {
+				const data = await response.json();
+				return data;
+			} else {
+				throw new Error("Request failed.");
+			}
+		} catch (error) {
+			return error;
+		}
+	}
+
+**Receiving HTTP requests**
+The `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_ file then receives these requests. Based on the path, the webserver runs database-handler functions imported from the `handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js` file. 
+
+.. code-block:: js
+	:caption: Receiving HTTP requests
+	:emphasize-lines: 7, 8, 9
+
+	try {
+		const url = new URL(requestEvent.request.url);
+		let response;
+		
+		switch (url.pathname) {
+
+			case "/ping":
+				response = {message: await db.ping()};
+				break;
+
+		...
+
+		}
+	}
+
+.. code-block:: js
+	:caption: Corresponding database function
+	:emphasize-lines: 4, 5, 6, 7, 8, 9, 10
+
+	async ping() {
+		console.log(`${file}> ping`); // Logging
+		try{
+			let db = new Surreal('http://127.0.0.1:8000/rpc');
+			await db.signin({
+				user: 'root',
+				pass: 'root',
+			})
+			await db.use('test', 'test');
+			db.close()
+		} catch(e) {
+			return e
+		}
+		return "pong"
+	}
+
+This function, as all database functions, creates a new Database connection, signs in, uses a NS and WS and then closes the connection again. 
+
 
 .. image:: /img/dependencies/thunder_client/thunder_client_icon.png
 	:scale: 20%
