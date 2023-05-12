@@ -29,7 +29,29 @@ With `SurrealDB <https://surrealdb.com>`_ we aim to learn about a new, bleeding-
 `http <https://surrealdb.com/docs/integration/http>`_
 -----------------------------------------------------
 
-`SurrealDB <https://surrealdb.com>`_ allows Integration via HTTP&Rest without further configuration. These calls can be made by every relevant programming language and framework, including Android Apps build with `Kotlin <https://www.youtube.com/watch?v=XLgYKc_syBI>`_.
+`SurrealDB <https://surrealdb.com>`_ allows Integration via HTTP&Rest without further configuration. These calls can be made by every relevant programming language and framework, including Android Apps build with `Kotlin <https://www.youtube.com/watch?v=XLgYKc_syBI>`_. Yet, given `SurrealDB <https://surrealdb.com>`_ state of development, the build in http functionality does not satisfy our needs concerning authentication or HTTPS.
+
+.. image:: /img/dependencies/deno/deno.png
+	:scale: 5%
+	:align: right
+	:class: float
+	:target: https://deno.land/
+
+.. ---------- Deno Webserver ----------
+
+`Deno <https://deno.land/>`_ Webserver
+_______________________________________
+
+.. image:: /img/database/http/overview.png
+	:scale: 100%
+	:align: center
+	:class: float
+
+The build in `Deno <https://deno.land/>`_ webserver acts as proxy to the `SurrealDB <https://surrealdb.com>`_ database. This allows configurations not yet implemented in `SurrealDB <https://surrealdb.com>`_ like HTTPS and more complex authentication. Overall, database interactions still stay simple and we do not lose any functionality. 
+
+The Deno Webserver is startet using the `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_ file. This file covers both webserver configuration (Port, ...) and accepted paths and their corresponding functions. These functions are imported from the `handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js` file. They are responsible for the database interaction and returns either the error code or the newly set data if the interaction completed without errors.
+
+
 
 .. image:: /img/dependencies/thunder_client/thunder_client_icon.png
 	:scale: 20%
