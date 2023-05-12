@@ -17,14 +17,33 @@ Why we use what we use
 
 .. ---------- SurrealDB ---------- 
 .. image:: /img/dependencies/surrealdb/surrealdb_icon.png
-	:scale: 20%
+	:scale: 10%
 	:align: right
 	:class: float
 	:target: https://surrealdb.com
 
-**SurrealDB**
+SurrealDB
+---------
 
-"..."
+*New, SQL-Like, scalability, cloud-ready, serverless, In-Memory, cloud ready, embedded and lightning quick setup* 
+
+SurrealDB is far from being compleat. Yet, it offers functions, methods and workflows that are not provided by a single other database. 
+
+**Setup**
+
+Starting SurrealDB can be done in a single line:
+
+.. code-block:: js
+	:caption: Installing SurrealDB
+
+	curl --proto '=https' --tlsv1.2 -sSf https://install.surrealdb.com | sh -s -- --nightly
+
+Alteratively, SurrealDB can be started using Docker
+
+.. code-block:: js
+	:caption: Downloading SurrealDB
+
+	docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:nightly start
 
 .. ---------- Deno ---------- 
 .. image:: /img/dependencies/deno/deno.png
@@ -33,7 +52,16 @@ Why we use what we use
 	:class: float
 	:target: https://deno.land/
 
-**Deno**
+**Running in memory**
+
+Starting SurrealDB like above, the database is run in memory and does not take up any storage. This is perfect for testing purposes. Of course, normal usage of the database is also possible. 
+
+**Schemaless**
+
+SurrealDB can receive schemaless Data. This means that queries do not have to conform to table designs. 
+
+Deno
+----
 
 "..."
 
@@ -44,7 +72,8 @@ Why we use what we use
 	:class: float
 	:target: https://astro.build/
 
-**Astro**
+Astro
+-----
 
 "..."
 
@@ -55,7 +84,8 @@ Why we use what we use
 	:class: float
 	:target: https://svelte.dev/
 
-**Svelte**
+Svelte
+------
 
 "..."
 
@@ -66,14 +96,8 @@ Why we use what we use
 	:class: float
 	:target: https://www.checkpoint.com/
 
-**Checkpoint**
+Checkpoint
+----------
 
 "..."
 
-
-
-
-.. ---------- Why we use what we use ---------- 
-
-Why we use what we use
-----------------------
