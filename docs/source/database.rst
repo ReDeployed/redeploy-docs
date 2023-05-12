@@ -2,8 +2,9 @@
 	:scale: 10%
 	:align: center
 
+********
 Database
-========
+********
 
 .. note::
    Given the nature of SurrealDB's development this page is subject to frequent change
@@ -21,8 +22,6 @@ Database
 	"With an SQL-style query language, real-time queries with highly-efficient related data retrieval, advanced security permissions for multi-tenant access, and support for performant analytical workloads, `SurrealDB <https://surrealdb.com>`_ is the next generation serverless database."
 
 From https://surrealdb.com
-
-With `SurrealDB <https://surrealdb.com>`_ we aim to learn about a new, bleeding-edge database thats unlike anything we have worked with before. The schemaless ability of Surreal eases data handling and gives us as all the flexibility we could ask for, wherever we need it. The capability to launch `SurrealDB <https://surrealdb.com>`_ on Docker with a singe command cuts out the tediously and error-prone tasks. 
 
 .. ---------- http ----------
 
