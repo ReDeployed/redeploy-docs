@@ -150,15 +150,11 @@ To use an API, a software developer typically needs to know the URL (Uniform Res
 
 Our API consists of our Checkpoint-SMS which we access over the gaia_api with the appropriate version and command. In this case we use the “show-interfaces” command which shows us the interfaces of the appropriate device or devices.
 
-.. image:: /img/webdesign/api/thunderclient01.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/api/thunderclient01.png
 
 After we send our Request we receive following text in full JSON-Format which we can access later and list in the config-subsite of the website.
 
-.. image:: /img/webdesign/api/thunderclient02.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/api/thunderclient02.png
 
 .. ---------- Overview of the Website ----------
 

@@ -53,36 +53,6 @@ SurrealDB
 	:class: float
 	:target: https://surrealdb.com
 
-*New, SQL-Like, scalability, cloud-ready, serverless, In-Memory, cloud ready, embedded and lightning quick setup* 
-
-SurrealDB is far from being complete. Yet, it offers functions, methods and workflows that are not provided by a single other database. 
-
-**Setup**
-
-Starting SurrealDB can be done in a single line:
-
-.. code-block:: js
-	:caption: Installing SurrealDB
-
-	curl --proto '=https' --tlsv1.2 -sSf https://install.surrealdb.com | sh -s -- --nightly
-
-Alteratively, SurrealDB can be started using Docker
-
-.. code-block:: js
-	:caption: Downloading SurrealDB
-
-	docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:nightly start
-
-**Running in memory**
-
-Starting SurrealDB like above, the database is run in memory and does not take up any storage. This is perfect for testing purposes. Of course, normal usage of the database is also possible. 
-
-**Schemaless**
-
-SurrealDB can receive schemaless Data. This means that queries do not have to conform to table designs. 
-
-**Why we use it**
-
 This was a rather quick decision, with the main focus on *"Hey, let's just try something new?"*. Of course we could have just chosen any
 generic database, especially for this project that only really uses it for caching purposes. But this is exactly where on factor matters
 the most: **Speed**

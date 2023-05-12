@@ -17,18 +17,11 @@ Database
 	:target: https://surrealdb.com
 
 `SurrealDB <https://surrealdb.com>`_
-------------------------------------
+====================================
 
 	"With an SQL-style query language, real-time queries with highly-efficient related data retrieval, advanced security permissions for multi-tenant access, and support for performant analytical workloads, `SurrealDB <https://surrealdb.com>`_ is the next generation serverless database."
 
 From https://surrealdb.com
-
-.. ---------- http ----------
-
-`http <https://surrealdb.com/docs/integration/http>`_
------------------------------------------------------
-
-`SurrealDB <https://surrealdb.com>`_ allows Integration via HTTP&Rest without further configuration. These calls can be made by every relevant programming language and framework, including Android Apps build with `Kotlin <https://www.youtube.com/watch?v=XLgYKc_syBI>`_. Yet, given `SurrealDB <https://surrealdb.com>`_ state of development, the build in http functionality does not satisfy our needs concerning authentication or HTTPS.
 
 .. image:: /img/dependencies/deno/deno.png
 	:scale: 5%
@@ -36,10 +29,36 @@ From https://surrealdb.com
 	:class: float
 	:target: https://deno.land/
 
+SurrealDB is far from being complete. Yet, it offers functions, methods and workflows that are not provided by a single other database. 
+
+**Setup**
+
+Starting SurrealDB can be done in a single line:
+
+.. code-block:: js
+	:caption: Installing SurrealDB
+
+	curl --proto '=https' --tlsv1.2 -sSf https://install.surrealdb.com | sh -s -- --nightly
+
+Alteratively, SurrealDB can be started using Docker
+
+.. code-block:: js
+	:caption: Downloading SurrealDB
+
+	docker run --rm --pull always -p 8000:8000 surrealdb/surrealdb:nightly start
+
+**Running in memory**
+
+Starting SurrealDB like above, the database is run in memory and does not take up any storage. This is perfect for testing purposes. Of course, normal usage of the database is also possible. 
+
+**Schemaless**
+
+SurrealDB can receive schemaless Data. This means that queries do not have to conform to table designs. 
+
 .. ---------- Deno Webserver ----------
 
 `Deno <https://deno.land/>`_ Webserver
-_______________________________________
+--------------------------------------
 
 .. image:: /img/database/http/overview.png
 	:scale: 100%
@@ -142,7 +161,7 @@ This function, as all database functions, creates a new Database connection, sig
 .. ---------- Testing with Thunder Client ----------
 
 Testing with `Thunder Client <https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client>`_
-_________________________________________________________________________________________________________________
+-----------------------------------------------------------------------------------------------------------------
 
 `Thunder Client <https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client>`_ allows us to send http requests from VisualStudio Code. We can use this to test the our code as well as the responsiveness of our database server.
 
@@ -166,7 +185,7 @@ These tests can be saved and repeated automatically as well. Setting them up req
 .. ---------- Integration ----------
 
 Integration
------------
+===========
 
 .. note::
 	`Coming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_
