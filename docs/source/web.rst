@@ -41,17 +41,13 @@ How we use Astro
 
 On average a basic `Astro <https://astro.build/>`_ project consists of these following files and their folders. Their importance and uses will be explained briefly:
 
-.. image:: /img/webdesign/folderstructure/folderstructure_01.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/folderstructure/folderstructure_01.png
 
 **folder public**
 
 This is one of the simpler folders, because it is only used to store file, media sources or fonts. These will then later be access through other files and only located in the public folder for ease of use.
 
-.. image:: /img/webdesign/folderstructure/folderstructure_02.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/folderstructure/folderstructure_02.png
 
 **folder src**
 
@@ -61,51 +57,37 @@ This folder contains the source code for your application, including HTML, CSS, 
 
 This folder contains the top-level pages of your application. Each file in this folder corresponds to a route in your application, and the file name determines the URL of that route. For example, src/pages/index.`Astro <https://astro.build/>`_ corresponds to the root route of your application (/).
 
-.. image:: /img/webdesign/folderstructure/folderstructure_03.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/folderstructure/folderstructure_03.png
 
 Here is an example of our index.astro file:
 
-.. image:: /img/webdesign/files/astro/astroconfigmjs.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/files/astro/astroconfigmjs.png
 
 **sub-folder layouts**
 
 This folder contains the layout templates for your application. Layout templates define the overall structure and style of your application, and they can be reused across multiple pages. Layout templates can also be nested, allowing for more complex layouts to be created.
 
-.. image:: /img/webdesign/folderstructure/folderstructure_04.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/folderstructure/folderstructure_04.png
  
 Our current Layout.Astro looks something like this:
 
-.. image:: /img/webdesign/files/astro/layout.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/files/astro/layout.png
 
 **sub-folder components**
 
 This folder contains the reusable UI components of your application. Components are small, self-contained pieces of code that can be used throughout your application, making it easier to maintain and update your codebase. Components can be shared across pages and layouts and can also be customized for specific use cases. These Components can then later be used in the pages mentioned above to get their entire content listed on the pages. Pretty darn simple right?
 
-.. image:: /img/webdesign/folderstructure/folderstructure_05.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/folderstructure/folderstructure_05.png
 
 As you can probably already see there is different kind of file extension with an even more interesting one the apicalls.http one. These Files have their original syntax so there is no need to try to change them into the `Astro <https://astro.build/>`_ syntax:
 
-.. image:: /img/webdesign/files/astro/syntax.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/files/astro/syntax.png
 
 **file astro.config.mjs**
 
 The astro.config.mjs file is used to configure `Astro <https://astro.build/>`_, the modern static site generator, for your project. This file allows you to customize various aspects of your `Astro <https://astro.build/>`_ project, such as configuring the build process, adding plugins, setting up server-side rendering, and defining environment variables. This file is a powerful tool for customizing and optimizing your `Astro <https://astro.build/>`_ project. By using this file, you can fine-tune your application to meet your specific needs and ensure that it performs optimally.
 
-.. image:: /img/webdesign/files/astro/astroconfigmjs.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/files/astro/astroconfigmjs.png
 
 **file package.json**
 
@@ -119,9 +101,7 @@ The package.json file is a configuration file that is used by `Astro <https://as
 	- dependencies: A list of dependencies required by your project, including `Astro <https://astro.build/>`_ itself and any other third-party packages you might be using.
 	- devDependencies: A list of development dependencies required by your project, such as testing frameworks, build tools, or other utilities.
 
-.. image:: /img/webdesign/files/astro/packagejson.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/files/astro/packagejson.png
 
 In addition to these basic properties, the package.json file can also include custom scripts that are used to automate common tasks in your project, such as building the application, running tests, or deploying to production.
 Overall, the package.json file is an essential part of any `Astro <https://astro.build/>`_ project, as it allows you to manage your dependencies and configure your project in a standardized and repeatable way. By using the package.json file, you can ensure that your project is easily reproducible, and that other developers can quickly get up and running with your codebase.
@@ -178,9 +158,7 @@ Home
 
 This is just a simple page that welcomes the user to the Re:Deploy Firewall manager and gives a quick Introduction into the firewall manager and what it does. The current look of it is this.
 
-.. image:: /img/webdesign/design/design_01.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/design/design_01.png
 
 .. ---------- Config & Status ----------
 
@@ -191,6 +169,4 @@ Config & Status
 
 The Config Page is for the configuration of the devices and general overview. The Status Page is for checking the Status of the SerialDB. Their current Look is this.
 
-.. image:: /img/webdesign/design/design_02.png
-	:scale: 100%
-	:align: center
+.. figure:: /img/webdesign/design/design_02.png

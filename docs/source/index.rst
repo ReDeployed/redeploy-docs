@@ -22,10 +22,10 @@ Table of Contents
 =================
 
 .. toctree::
-   :maxdepth: 4
+    :maxdepth: 2
 
-   web.rst
-   database.rst
-   checkpoint.rst
-   android.rst
-   about.rst
+    about.rst
+    web.rst
+    database.rst
+    checkpoint.rst
+    android.rst
