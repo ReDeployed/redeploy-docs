@@ -2,12 +2,12 @@
 	:scale: 20%
 	:align: center
 
-**ReDeploy**
-===================================
+********
+ReDeploy
+********
 
 .. note::
 	This project is under active development.
-
 
 Team Members
 		- Teppan Fabian 
@@ -18,14 +18,14 @@ Team Members
 Project Supervisor
 		- Prof. Harald Wolf
 
-Contents
---------
+Table of Contents
+=================
 
 .. toctree::
-	:maxdepth: 3
+    :maxdepth: 2
 
-	database
-	webdesign
-	checkpoint
-	about.rst
-	android.rst
+    about.rst
+    web.rst
+    database.rst
+    checkpoint.rst
+    android.rst
