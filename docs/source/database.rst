@@ -75,37 +75,16 @@ As mentioned above, starting the webserver is covered by the `webserver.js <http
 
 .. code-block:: js
 	:caption: Starting the webserver
-	:emphasize-lines: 3, 4, 5
+	
+	deno run --allow-net --allow-read webserver.ts
 
-	const port = 8080;
+**HTTPS**
 
-	const server = Deno.listen({
-		port: port, 
-	});
-
-	console.log("Webserver running on " + port);
+Using https with `Deno <https://deno.land/>`_ is possible using a self signed certificate.  We did implemented this, but soon noticed that it creates more complications for what it is worth, especially when using a https proxy. 
 
 **Sending HTTP requests**
 
-This is covered by the client.js file. It sends HTTP requests to the webserver.
-
-.. code-block:: js
-	:caption: HTTP request example
-
-	async api(path="") {
-		let url = `${PROTOCOL}://${IP}:${PORT}/${path}`;
-		try {
-			const response = await fetch(url);
-			if (response.ok) {
-				const data = await response.json();
-				return data;
-			} else {
-				throw new Error("Request failed.");
-			}
-		} catch (error) {
-			return error;
-		}
-	}
+This is covered by the client.
 
 **Receiving HTTP requests**
 The `webserver.js <https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts>`_ file then receives these requests. Based on the path, the webserver runs database-handler functions imported from the `handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js` file. 
@@ -182,10 +161,72 @@ We can even use `Thunder Client <https://marketplace.visualstudio.com/items?item
 
 These tests can be saved and repeated automatically as well. Setting them up requires only filling 3 fields.
 
-.. ---------- Integration ----------
+.. ---------- Data ----------
 
-Integration
-===========
+Data
+====
+
+As mentioned above, saving data using `SurrealDB <https://surrealdb.com>`_ is far less complex than databases. This allows us to simply put the json output from the firewall straight into the database.
+
+.. code-block:: js
+	:caption: Adding a firewall
+	:emphasize-lines: 4,5,6,7
+
+	return await db.addApp(
+			id, 
+			ip,
+			await chkpSim.showDiagnosticsCPU(),
+			await chkpSim.showDiagnosticsMEM(),
+			await chkpSim.showInterfaces(),
+			await chkpSim.showVersion(),
+			);
+	
+We are unsure about showing the entire firewall configuration
+
+.. ---------- Endpoints ----------
+
+Endpoints
+=========
 
 .. note::
-	`Coming soon ... <https://www.youtube.com/watch?v=s-UFPhz2nZ0>`_
+   Deleting a firewall inside the firewall-manager does not delete the physical firewall
+
+**/startManage**
+
+Endpoint for adding a firewall.
+
+.. code-block:: js
+	:caption: /startManage Endpoint
+
+	.../startManage?id&ip=1.2.3.4
+
+	Parameters:
+		id - id of the firewall (hostname)
+		ip - ip address of the firewall
+
+**stopManage**
+
+Endpoint to stop managing a firewall.
+
+.. note::
+   Deleting a firewall inside the firewall-manager does not delete the physical firewall
+
+.. code-block:: js
+	:caption: /stopManage Endpoint
+
+	.../stopManage?id=CheckAPPL
+
+	Parameters:
+		id - id of the firewall (hostname)
+
+**update**
+
+Endpoint to refresh displayed data
+
+.. code-block:: js
+	:caption: /update Endpoint
+
+	.../update
+
+	Parameters:
+		none
