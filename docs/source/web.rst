@@ -180,11 +180,47 @@ This is just a simple page that welcomes the user to the Re:Deploy Firewall mana
 
 .. ---------- Config & Status ----------
 
-Config & Status
+Config 
 ---------------
 
 **The purpose of this site**
 
-The Config Page is for the configuration of the devices and general overview. The Status Page is for checking the Status of the SerialDB. Their current Look is this.
+The Config page is the part where the fun begins. In here the Devices which are called by the API are listed, with the option to either edit them or Delete/Shutdown them. Currently we only use Virtuel Device which we receive from our db to view them.
 
-.. figure:: /img/webdesign/design/design_02.png
+.. figure:: /img/webdesign/design/config.png
+
+Edit 
+----
+
+**The purpose of this site**
+
+The Edit Page is for updating/changing the virtuell Devices which we receive from the DB. Listing works, but the functionality for updating the Devices isnt implemented into the db yet. The current Look of the page is this:
+
+.. figure:: /img/webdesign/design/edit.png
+
+Status 
+------
+
+**The purpose of this site**
+
+The Status page is for showing the status of devices, basically the same as the Editing page but readonly: The current look of the page is the following:
+
+.. figure:: /img/webdesign/design/status.png
+
+Input Validation 
+----------------
+
+**The purpose of this site**
+
+The Input Validation Page is as the name states used for Input Validation so that the input that the User input is being checked and controlled. This Component should have been implemented into the Edit Page but since the Update Calls cannot be called it was not:
+
+.. figure:: /img/webdesign/design/inputvalidation.png
+
+Token
+-----
+
+**The purpose of this site**
+
+The purpose of this page is being used by the android app which we created only, so that we can authenticate throught it:
+
+.. figure:: /img/webdesign/design/token.png
