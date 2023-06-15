@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Interface &mdash; ReDeploy 1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Database" href="database.html" />
+    <link rel="prev" title="About ReDeploy" href="about.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ReDeploy
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About ReDeploy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Web Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#concept">Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#javascript-frameworks-and-their-advantages">JavaScript Frameworks and their Advantages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-the-project">Overview of the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">Astro</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-we-use-astro">How we use Astro</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">Svelte</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-we-use-svelte">How we use Svelte</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id28">Deno</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-we-use-deno">How we use Deno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-the-website">Overview of the Website</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#home">Home</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config">Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit">Edit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status">Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-validation">Input Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#token">Token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkpoint.html">Checkpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ReDeploy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Web Interface</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/web.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="web-interface">
+<h1>Web Interface<a class="headerlink" href="#web-interface" title="Permalink to this headline"></a></h1>
+<section id="concept">
+<h2>Concept<a class="headerlink" href="#concept" title="Permalink to this headline"></a></h2>
+<p>For the frontend of our web application, we use <a class="reference external" href="https://astro.build/">Astro</a>, a modern static site generator that enables dynamic components and client-side rendering, making it an ideal choice for building performant and scalable web applications. We complement <a class="reference external" href="https://astro.build/">Astro</a> with <a class="reference external" href="https://svelte.dev/">Svelte</a> as our frontend framework, which emphasizes small bundle sizes and fast performance, allowing us to build reactive user interfaces and single-page applications. For our backend, we use <a class="reference external" href="https://svelte.dev/">Svelte</a>.js, which is typically used as a frontend framework, but can also be used on the backend with Sapper or other similar frameworks. <a class="reference external" href="https://svelte.dev/">Svelte</a>.js allows us to build reactive and scalable applications on both the frontend and backend. Additionally, we use <a class="reference external" href="https://deno.land/">Deno</a>, a secure runtime for JavaScript and TypeScript that allows us to build server-side applications with ease. <a class="reference external" href="https://deno.land/">Deno</a> provides built-in security features and a modern JavaScript API, making it an excellent choice for building secure and performant server-side applications.</p>
+</section>
+<section id="javascript-frameworks-and-their-advantages">
+<h2>JavaScript Frameworks and their Advantages<a class="headerlink" href="#javascript-frameworks-and-their-advantages" title="Permalink to this headline"></a></h2>
+<p>JavaScript frameworks like <a class="reference external" href="https://astro.build/">Astro</a> and <a class="reference external" href="https://svelte.dev/">Svelte</a> simplify the process of building web applications by providing a powerful set of tools and abstractions. <a class="reference external" href="https://astro.build/">Astro</a> is a modern static site generator that allows for dynamic content, while <a class="reference external" href="https://svelte.dev/">Svelte</a> is a reactive frontend framework for building high-performance applications. These frameworks offer improved productivity, maintainability, and performance, resulting in consistent, maintainable codebases that are easier to work with and debug. By using these frameworks, developers can build engaging web applications and provide a better user experience for their users.</p>
+</section>
+<section id="overview-of-the-project">
+<h2>Overview of the Project<a class="headerlink" href="#overview-of-the-project" title="Permalink to this headline"></a></h2>
+<p><strong>Current Main components:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://astro.build/">Astro</a></p></li>
+<li><p><a class="reference external" href="https://svelte.dev/">Svelte</a></p></li>
+<li><p><a class="reference external" href="https://deno.land/">Deno</a></p></li>
+</ul>
+</div></blockquote>
+<a class="reference external image-reference" href="https://astro.build/"><img alt="_images/astro-logo-dark.png" class="float align-right" src="_images/astro-logo-dark.png" style="width: 120.0px; height: 31.400000000000002px;" /></a>
+</section>
+<section id="id13">
+<h2><a class="reference external" href="https://astro.build/">Astro</a><a class="headerlink" href="#id13" title="Permalink to this headline"></a></h2>
+<section id="how-we-use-astro">
+<h3>How we use Astro<a class="headerlink" href="#how-we-use-astro" title="Permalink to this headline"></a></h3>
+<p>On average a basic <a class="reference external" href="https://astro.build/">Astro</a> project consists of these following files and their folders. Their importance and uses will be explained briefly:</p>
+<figure class="align-default">
+<img alt="_images/folderstructure_01.png" src="_images/folderstructure_01.png" />
+</figure>
+<p><strong>folder public</strong></p>
+<p>This is one of the simpler folders, because it is only used to store file, media sources or fonts. These will then later be access through other files and only located in the public folder for ease of use.</p>
+<figure class="align-default">
+<img alt="_images/folderstructure_02.png" src="_images/folderstructure_02.png" />
+</figure>
+<p><strong>folder src</strong></p>
+<p>This folder contains the source code for your application, including HTML, CSS, and JavaScript files. It is the main folder where you do most of your development work. This folder splits into 3 important sub-folders</p>
+<p><strong>sub-folder pages</strong></p>
+<p>This folder contains the top-level pages of your application. Each file in this folder corresponds to a route in your application, and the file name determines the URL of that route. For example, src/pages/index.`Astro &lt;<a class="reference external" href="https://astro.build/">https://astro.build/</a>&gt;`_ corresponds to the root route of your application (/).</p>
+<figure class="align-default">
+<img alt="_images/folderstructure_03.png" src="_images/folderstructure_03.png" />
+</figure>
+<p>Here is an example of our index.astro file:</p>
+<figure class="align-default">
+<img alt="_images/astroconfigmjs.png" src="_images/astroconfigmjs.png" />
+</figure>
+<p><strong>sub-folder layouts</strong></p>
+<p>This folder contains the layout templates for your application. Layout templates define the overall structure and style of your application, and they can be reused across multiple pages. Layout templates can also be nested, allowing for more complex layouts to be created.</p>
+<figure class="align-default">
+<img alt="_images/folderstructure_04.png" src="_images/folderstructure_04.png" />
+</figure>
+<p>Our current Layout.Astro looks something like this:</p>
+<figure class="align-default">
+<img alt="_images/layout.png" src="_images/layout.png" />
+</figure>
+<p><strong>sub-folder components</strong></p>
+<p>This folder contains the reusable UI components of your application. Components are small, self-contained pieces of code that can be used throughout your application, making it easier to maintain and update your codebase. Components can be shared across pages and layouts and can also be customized for specific use cases. These Components can then later be used in the pages mentioned above to get their entire content listed on the pages. Pretty darn simple right?</p>
+<figure class="align-default">
+<img alt="_images/folderstructure_05.png" src="_images/folderstructure_05.png" />
+</figure>
+<p>As you can probably already see there is different kind of file extension with an even more interesting one the apicalls.http one. These Files have their original syntax so there is no need to try to change them into the <a class="reference external" href="https://astro.build/">Astro</a> syntax:</p>
+<figure class="align-default">
+<img alt="_images/syntax.png" src="_images/syntax.png" />
+</figure>
+<p><strong>file astro.config.mjs</strong></p>
+<p>The astro.config.mjs file is used to configure <a class="reference external" href="https://astro.build/">Astro</a>, the modern static site generator, for your project. This file allows you to customize various aspects of your <a class="reference external" href="https://astro.build/">Astro</a> project, such as configuring the build process, adding plugins, setting up server-side rendering, and defining environment variables. This file is a powerful tool for customizing and optimizing your <a class="reference external" href="https://astro.build/">Astro</a> project. By using this file, you can fine-tune your application to meet your specific needs and ensure that it performs optimally.</p>
+<figure class="align-default">
+<img alt="_images/astroconfigmjs.png" src="_images/astroconfigmjs.png" />
+</figure>
+<p><strong>file package.json</strong></p>
+<dl class="simple">
+<dt>The package.json file is a configuration file that is used by <a class="reference external" href="https://astro.build/">Astro</a> (and other Node.js-based projects) to manage dependencies and scripts for your project. In a basic <a class="reference external" href="https://astro.build/">Astro</a> project, the package.json file typically includes the following:</dt><dd><ul class="simple">
+<li><p>name: The name of your project.</p></li>
+<li><p>version: The version of your project.</p></li>
+<li><p>description: A brief description of your project.</p></li>
+<li><p>keywords: An array of keywords that describe your project.</p></li>
+<li><p>author: The name of the author(s) of your project.</p></li>
+<li><p>license: The license under which your project is released.</p></li>
+<li><p>dependencies: A list of dependencies required by your project, including <a class="reference external" href="https://astro.build/">Astro</a> itself and any other third-party packages you might be using.</p></li>
+<li><p>devDependencies: A list of development dependencies required by your project, such as testing frameworks, build tools, or other utilities.</p></li>
+</ul>
+</dd>
+</dl>
+<figure class="align-default">
+<img alt="_images/packagejson.png" src="_images/packagejson.png" />
+</figure>
+<p>In addition to these basic properties, the package.json file can also include custom scripts that are used to automate common tasks in your project, such as building the application, running tests, or deploying to production.
+Overall, the package.json file is an essential part of any <a class="reference external" href="https://astro.build/">Astro</a> project, as it allows you to manage your dependencies and configure your project in a standardized and repeatable way. By using the package.json file, you can ensure that your project is easily reproducible, and that other developers can quickly get up and running with your codebase.</p>
+<a class="reference external image-reference" href="https://svelte.dev/"><img alt="_images/svelte_icon.png" class="float align-right" src="_images/svelte_icon.png" style="width: 66.5px; height: 80.0px;" /></a>
+</section>
+</section>
+<section id="id24">
+<h2><a class="reference external" href="https://svelte.dev/">Svelte</a><a class="headerlink" href="#id24" title="Permalink to this headline"></a></h2>
+<section id="how-we-use-svelte">
+<h3>How we use Svelte<a class="headerlink" href="#how-we-use-svelte" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://svelte.dev/">Svelte</a> is a modern JavaScript framework for building web applications. Unlike other frameworks that run in the browser, <a class="reference external" href="https://svelte.dev/">Svelte</a> compiles your application into highly efficient vanilla JavaScript code that runs faster and takes up less space, resulting in better performance and a smaller file size.</p>
+<a class="reference external image-reference" href="https://deno.land/"><img alt="_images/deno.png" class="float align-right" src="_images/deno.png" style="width: 102.4px; height: 102.4px;" /></a>
+</section>
+</section>
+<section id="id28">
+<h2><a class="reference external" href="https://deno.land/">Deno</a><a class="headerlink" href="#id28" title="Permalink to this headline"></a></h2>
+<section id="how-we-use-deno">
+<h3>How we use Deno<a class="headerlink" href="#how-we-use-deno" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://deno.land/">Deno</a> can be used in combination with <a class="reference external" href="https://astro.build/">Astro</a> to provide server-side functionality for your web application. <a class="reference external" href="https://astro.build/">Astro</a> supports serverless functions, which are essentially small JavaScript scripts that run on the server and can perform tasks such as processing form data, accessing a database, or calling an external API.
+To use <a class="reference external" href="https://deno.land/">Deno</a> with <a class="reference external" href="https://astro.build/">Astro</a> and serverless functions, you can write your server-side code in <a class="reference external" href="https://deno.land/">Deno</a> and define a serverless function that handles incoming requests and returns the response. You can then use this serverless function in your <a class="reference external" href="https://astro.build/">Astro</a> components to fetch dynamic data and render content.</p>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h3>
+<p><strong>Using the API</strong></p>
+<p>To use an API, a software developer typically needs to know the URL (Uniform Resource Locator) of the API, the authentication method (if required), and the parameters that need to be passed to the API to retrieve or manipulate data. Once this information is obtained, the developer can use it to make requests to the API and receive responses.</p>
+<p><strong>How the API works</strong></p>
+<p>Our API consists of our Checkpoint-SMS which we access over the gaia_api with the appropriate version and command. In this case we use the “show-interfaces” command which shows us the interfaces of the appropriate device or devices.</p>
+<figure class="align-default">
+<img alt="_images/thunderclient01.png" src="_images/thunderclient01.png" />
+</figure>
+<p>After we send our Request we receive following text in full JSON-Format which we can access later and list in the config-subsite of the website.</p>
+<figure class="align-default">
+<img alt="_images/thunderclient02.png" src="_images/thunderclient02.png" />
+</figure>
+</section>
+</section>
+<section id="overview-of-the-website">
+<h2>Overview of the Website<a class="headerlink" href="#overview-of-the-website" title="Permalink to this headline"></a></h2>
+<p><strong>Current Look of the WebPage</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Home</p></li>
+<li><p>Config</p></li>
+<li><p>Status</p></li>
+</ul>
+</div></blockquote>
+<section id="home">
+<h3>Home<a class="headerlink" href="#home" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>This is just a simple page that welcomes the user to the Re:Deploy Firewall manager and gives a quick Introduction into the firewall manager and what it does. The current look of it is this.</p>
+<figure class="align-default">
+<img alt="_images/design_01.png" src="_images/design_01.png" />
+</figure>
+</section>
+<section id="config">
+<h3>Config<a class="headerlink" href="#config" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>The Config page is the part where the fun begins. In here the Devices which are called by the API are listed, with the option to either edit them or Delete/Shutdown them. Currently we only use Virtuel Device which we receive from our db to view them.</p>
+<figure class="align-default">
+<img alt="_images/config.png" src="_images/config.png" />
+</figure>
+</section>
+<section id="edit">
+<h3>Edit<a class="headerlink" href="#edit" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>The Edit Page is for updating/changing the virtuell Devices which we receive from the DB. Listing works, but the functionality for updating the Devices isnt implemented into the db yet. The current Look of the page is this:</p>
+<figure class="align-default">
+<img alt="_images/edit.png" src="_images/edit.png" />
+</figure>
+</section>
+<section id="status">
+<h3>Status<a class="headerlink" href="#status" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>The Status page is for showing the status of devices, basically the same as the Editing page but readonly: The current look of the page is the following:</p>
+<figure class="align-default">
+<img alt="_images/status.png" src="_images/status.png" />
+</figure>
+</section>
+<section id="input-validation">
+<h3>Input Validation<a class="headerlink" href="#input-validation" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>The Input Validation Page is as the name states used for Input Validation so that the input that the User input is being checked and controlled. This Component should have been implemented into the Edit Page but since the Update Calls cannot be called it was not:</p>
+<figure class="align-default">
+<img alt="_images/inputvalidation.png" src="_images/inputvalidation.png" />
+</figure>
+</section>
+<section id="token">
+<h3>Token<a class="headerlink" href="#token" title="Permalink to this headline"></a></h3>
+<p><strong>The purpose of this site</strong></p>
+<p>The purpose of this page is being used by the android app which we created only, so that we can authenticate throught it:</p>
+<figure class="align-default">
+<img alt="_images/token.png" src="_images/token.png" />
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="about.html" class="btn btn-neutral float-left" title="About ReDeploy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="database.html" class="btn btn-neutral float-right" title="Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ReDeploy Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

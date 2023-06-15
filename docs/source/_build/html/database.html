@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Database &mdash; ReDeploy 1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Checkpoint" href="checkpoint.html" />
+    <link rel="prev" title="Web Interface" href="web.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ReDeploy
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About ReDeploy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">SurrealDB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#deno-webserver">Deno Webserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-with-thunder-client">Testing with Thunder Client</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#endpoints">Endpoints</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checkpoint.html">Checkpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ReDeploy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Database</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/database.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/surrealdb.png"><img alt="_images/surrealdb.png" class="align-center" src="_images/surrealdb.png" style="width: 409.6px; height: 88.10000000000001px;" /></a>
+<section id="database">
+<h1>Database<a class="headerlink" href="#database" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Given the nature of SurrealDB’s development this page is subject to frequent change</p>
+</div>
+<a class="reference external image-reference" href="https://surrealdb.com"><img alt="_images/surrealdb_icon.png" class="float align-right" src="_images/surrealdb_icon.png" style="width: 51.400000000000006px; height: 60.0px;" /></a>
+<section id="id1">
+<h2><a class="reference external" href="https://surrealdb.com">SurrealDB</a><a class="headerlink" href="#id1" title="Permalink to this headline"></a></h2>
+<blockquote>
+<div><p>“With an SQL-style query language, real-time queries with highly-efficient related data retrieval, advanced security permissions for multi-tenant access, and support for performant analytical workloads, <a class="reference external" href="https://surrealdb.com">SurrealDB</a> is the next generation serverless database.”</p>
+</div></blockquote>
+<p>From <a class="reference external" href="https://surrealdb.com">https://surrealdb.com</a></p>
+<a class="reference external image-reference" href="https://deno.land/"><img alt="_images/deno.png" class="float align-right" src="_images/deno.png" style="width: 51.2px; height: 51.2px;" /></a>
+<p>SurrealDB is far from being complete. Yet, it offers functions, methods and workflows that are not provided by a single other database.</p>
+<p><strong>Setup</strong></p>
+<p>Starting SurrealDB can be done in a single line:</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Installing SurrealDB</span><a class="headerlink" href="#id13" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">curl</span> <span class="o">--</span><span class="nx">proto</span> <span class="s1">&#39;=https&#39;</span> <span class="o">--</span><span class="nx">tlsv1</span><span class="mf">.2</span> <span class="o">-</span><span class="nx">sSf</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//install.surrealdb.com | sh -s -- --nightly</span>
+</pre></div>
+</div>
+</div>
+<p>Alteratively, SurrealDB can be started using Docker</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Downloading SurrealDB</span><a class="headerlink" href="#id14" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">docker</span> <span class="nx">run</span> <span class="o">--</span><span class="nx">rm</span> <span class="o">--</span><span class="nx">pull</span> <span class="nx">always</span> <span class="o">-</span><span class="nx">p</span> <span class="mf">8000</span><span class="o">:</span><span class="mf">8000</span> <span class="nx">surrealdb</span><span class="o">/</span><span class="nx">surrealdb</span><span class="o">:</span><span class="nx">nightly</span> <span class="nx">start</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Running in memory</strong></p>
+<p>Starting SurrealDB like above, the database is run in memory and does not take up any storage. This is perfect for testing purposes. Of course, normal usage of the database is also possible.</p>
+<p><strong>Schemaless</strong></p>
+<p>SurrealDB can receive schemaless Data. This means that queries do not have to conform to table designs.</p>
+<section id="deno-webserver">
+<h3><a class="reference external" href="https://deno.land/">Deno</a> Webserver<a class="headerlink" href="#deno-webserver" title="Permalink to this headline"></a></h3>
+<a class="float reference internal image-reference" href="_images/overview.png"><img alt="_images/overview.png" class="float align-center" src="_images/overview.png" style="width: 1051.0px; height: 393.0px;" /></a>
+<p>The build in <a class="reference external" href="https://deno.land/">Deno</a> webserver acts as proxy to the <a class="reference external" href="https://surrealdb.com">SurrealDB</a> database. This allows configurations not yet implemented in <a class="reference external" href="https://surrealdb.com">SurrealDB</a> like HTTPS and more complex authentication. Overall, database interactions still stay simple and we do not lose any functionality.</p>
+<p>The Deno Webserver is startet using the <a class="reference external" href="https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts">webserver.js</a> file. This file covers both webserver configuration (Port, …) and accepted paths and their corresponding functions. These functions are imported from the <cite>handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js</cite> file. They are responsible for the database interaction and returns either the error code or the newly set data if the interaction completed without errors.</p>
+<p><strong>Starting the Webserver</strong></p>
+<p>As mentioned above, starting the webserver is covered by the <a class="reference external" href="https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts">webserver.js</a> file like this:</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Starting the webserver</span><a class="headerlink" href="#id15" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">deno</span> <span class="nx">run</span> <span class="o">--</span><span class="nx">allow</span><span class="o">-</span><span class="nx">net</span> <span class="o">--</span><span class="nx">allow</span><span class="o">-</span><span class="nx">read</span> <span class="nx">webserver</span><span class="p">.</span><span class="nx">ts</span>
+</pre></div>
+</div>
+</div>
+<p><strong>HTTPS</strong></p>
+<p>Using https with <a class="reference external" href="https://deno.land/">Deno</a> is possible using a self signed certificate.  We did implemented this, but soon noticed that it creates more complications for what it is worth, especially when using a https proxy.</p>
+<p><strong>Sending HTTP requests</strong></p>
+<p>This is covered by the client.</p>
+<p><strong>Receiving HTTP requests</strong>
+The <a class="reference external" href="https://github.com/ReDeployed/core/blob/master/surreal-src/server/webserver.ts">webserver.js</a> file then receives these requests. Based on the path, the webserver runs database-handler functions imported from the <cite>handler.js https://github.com/ReDeployed/core/blob/master/surreal-src/server/handler.js</cite> file.</p>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Receiving HTTP requests</span><a class="headerlink" href="#id16" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">requestEvent</span><span class="p">.</span><span class="nx">request</span><span class="p">.</span><span class="nx">url</span><span class="p">);</span>
+        <span class="kd">let</span> <span class="nx">response</span><span class="p">;</span>
+
+        <span class="k">switch</span> <span class="p">(</span><span class="nx">url</span><span class="p">.</span><span class="nx">pathname</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="hll">                <span class="k">case</span> <span class="s2">&quot;/ping&quot;</span><span class="o">:</span>
+</span><span class="hll">                        <span class="nx">response</span> <span class="o">=</span> <span class="p">{</span><span class="nx">message</span><span class="o">:</span> <span class="k">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">ping</span><span class="p">()};</span>
+</span><span class="hll">                        <span class="k">break</span><span class="p">;</span>
+</span>
+        <span class="p">...</span>
+
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Corresponding database function</span><a class="headerlink" href="#id17" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="nx">ping</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">file</span><span class="si">}</span><span class="sb">&gt; ping`</span><span class="p">);</span> <span class="c1">// Logging</span>
+        <span class="k">try</span><span class="p">{</span>
+<span class="hll">                <span class="kd">let</span> <span class="nx">db</span> <span class="o">=</span> <span class="ow">new</span> <span class="nx">Surreal</span><span class="p">(</span><span class="s1">&#39;http://127.0.0.1:8000/rpc&#39;</span><span class="p">);</span>
+</span><span class="hll">                <span class="k">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">signin</span><span class="p">({</span>
+</span><span class="hll">                        <span class="nx">user</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+</span><span class="hll">                        <span class="nx">pass</span><span class="o">:</span> <span class="s1">&#39;root&#39;</span><span class="p">,</span>
+</span><span class="hll">                <span class="p">})</span>
+</span><span class="hll">                <span class="k">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">);</span>
+</span><span class="hll">                <span class="nx">db</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+</span>        <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">e</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="s2">&quot;pong&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>This function, as all database functions, creates a new Database connection, signs in, uses a NS and WS and then closes the connection again.</p>
+<a class="reference external image-reference" href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client"><img alt="_images/thunder_client_icon.png" class="float align-right" src="_images/thunder_client_icon.png" style="width: 51.2px; height: 51.2px;" /></a>
+</section>
+<section id="testing-with-thunder-client">
+<h3>Testing with <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client">Thunder Client</a><a class="headerlink" href="#testing-with-thunder-client" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client">Thunder Client</a> allows us to send http requests from VisualStudio Code. We can use this to test the our code as well as the responsiveness of our database server.</p>
+<p>Headers, Authentication Body of the request, the type of request and the hostname/IP address of the server can easily be set on the main screen. To save time, requests can be saved to become repeatable and presets containing non-changing settings like the hostname or authentication details can be created.</p>
+<a class="reference internal image-reference" href="_images/thunder_client_usecase_01.png"><img alt="_images/thunder_client_usecase_01.png" class="align-center" src="_images/thunder_client_usecase_01.png" style="width: 783.3px; height: 224.0px;" /></a>
+<p><a class="reference external" href="https://surrealdb.com">SurrealDB’s</a> version can be obtained effortlessly by utilizing <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client">Thunder Client</a>.
+We can also get the Status Code (200 OK), response size (37 Bytes) and the time required (3 ms)</p>
+<p>We can even use <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client">Thunder Client</a> for automated tests.</p>
+<a class="reference internal image-reference" href="_images/thunder_client_usecase_02.png"><img alt="_images/thunder_client_usecase_02.png" class="align-center" src="_images/thunder_client_usecase_02.png" style="width: 919.0999999999999px; height: 205.79999999999998px;" /></a>
+<p>These tests can be saved and repeated automatically as well. Setting them up requires only filling 3 fields.</p>
+</section>
+</section>
+<section id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline"></a></h2>
+<p>As mentioned above, saving data using <a class="reference external" href="https://surrealdb.com">SurrealDB</a> is far less complex than databases. This allows us to simply put the json output from the firewall straight into the database.</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">Adding a firewall</span><a class="headerlink" href="#id18" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="k">await</span> <span class="nx">db</span><span class="p">.</span><span class="nx">addApp</span><span class="p">(</span>
+                <span class="nx">id</span><span class="p">,</span>
+                <span class="nx">ip</span><span class="p">,</span>
+<span class="hll">                <span class="k">await</span> <span class="nx">chkpSim</span><span class="p">.</span><span class="nx">showDiagnosticsCPU</span><span class="p">(),</span>
+</span><span class="hll">                <span class="k">await</span> <span class="nx">chkpSim</span><span class="p">.</span><span class="nx">showDiagnosticsMEM</span><span class="p">(),</span>
+</span><span class="hll">                <span class="k">await</span> <span class="nx">chkpSim</span><span class="p">.</span><span class="nx">showInterfaces</span><span class="p">(),</span>
+</span><span class="hll">                <span class="k">await</span> <span class="nx">chkpSim</span><span class="p">.</span><span class="nx">showVersion</span><span class="p">(),</span>
+</span>                <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>We are unsure about showing the entire firewall configuration</p>
+</section>
+<section id="endpoints">
+<h2>Endpoints<a class="headerlink" href="#endpoints" title="Permalink to this headline"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deleting a firewall inside the firewall-manager does not delete the physical firewall</p>
+</div>
+<p><strong>/startManage</strong></p>
+<p>Endpoint for adding a firewall.</p>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">/startManage Endpoint</span><a class="headerlink" href="#id19" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="o">/</span><span class="nx">startManage</span><span class="o">?</span><span class="nx">id</span><span class="o">&amp;</span><span class="nx">ip</span><span class="o">=</span><span class="mf">1.2.3.4</span>
+
+<span class="nx">Parameters</span><span class="o">:</span>
+        <span class="nx">id</span> <span class="o">-</span> <span class="nx">id</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">firewall</span> <span class="p">(</span><span class="nx">hostname</span><span class="p">)</span>
+        <span class="nx">ip</span> <span class="o">-</span> <span class="nx">ip</span> <span class="nx">address</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">firewall</span>
+</pre></div>
+</div>
+</div>
+<p><strong>stopManage</strong></p>
+<p>Endpoint to stop managing a firewall.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Deleting a firewall inside the firewall-manager does not delete the physical firewall</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">/stopManage Endpoint</span><a class="headerlink" href="#id20" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="o">/</span><span class="nx">stopManage</span><span class="o">?</span><span class="nx">id</span><span class="o">=</span><span class="nx">CheckAPPL</span>
+
+<span class="nx">Parameters</span><span class="o">:</span>
+        <span class="nx">id</span> <span class="o">-</span> <span class="nx">id</span> <span class="k">of</span> <span class="nx">the</span> <span class="nx">firewall</span> <span class="p">(</span><span class="nx">hostname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p><strong>update</strong></p>
+<p>Endpoint to refresh displayed data</p>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">/update Endpoint</span><a class="headerlink" href="#id21" title="Permalink to this code"></a></div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">...</span><span class="o">/</span><span class="nx">update</span>
+
+<span class="nx">Parameters</span><span class="o">:</span>
+        <span class="nx">none</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="web.html" class="btn btn-neutral float-left" title="Web Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="checkpoint.html" class="btn btn-neutral float-right" title="Checkpoint" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ReDeploy Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
