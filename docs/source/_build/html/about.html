@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About ReDeploy &mdash; ReDeploy 1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Web Interface" href="web.html" />
+    <link rel="prev" title="ReDeploy" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ReDeploy
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About ReDeploy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-big-picture">The Big Picture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#flowchart">Flowchart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-it-does">What it does</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#component-choices">Component Choices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#surrealdb">SurrealDB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#astro">Astro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deno">Deno</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#svelte">Svelte</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checkpoint">Checkpoint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkpoint.html">Checkpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ReDeploy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>About ReDeploy</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/about.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/redeploy_logo_full.png"><img alt="_images/redeploy_logo_full.png" class="align-center" src="_images/redeploy_logo_full.png" style="width: 384.0px; height: 216.0px;" /></a>
+<section id="about-redeploy">
+<h1>About ReDeploy<a class="headerlink" href="#about-redeploy" title="Permalink to this headline"></a></h1>
+<section id="the-big-picture">
+<h2>The Big Picture<a class="headerlink" href="#the-big-picture" title="Permalink to this headline"></a></h2>
+<section id="flowchart">
+<h3>Flowchart<a class="headerlink" href="#flowchart" title="Permalink to this headline"></a></h3>
+<p>To quickly understand how ReDeploy operates, consult the flowchart below:</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/flowchart.png"><img alt="_images/flowchart.png" src="_images/flowchart.png" style="width: 613.1999999999999px; height: 677.4px;" /></a>
+</figure>
+</section>
+<section id="how-it-works">
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline"></a></h3>
+<p>The entire stack is meant to be fully dockerized. It consists of to containers, namely the DB container and the Web container.
+These two interact via the internal docker network. The DB traffic itself never leaves this network and is also mapped to no host port.
+We primarly use the DB for caching, to reduce network traffic to the actual endpoints and speed things up even if there are more devices
+to manage. The goal is to fetch fresh data as few times as possible and use cache data whenever we can.</p>
+<p>The Web Container has direct API communications with the Gaia Management Server, which are handled by the Svelte backend. It also provides
+it’s own API endpoint which can be accessed by clients (in this case our Android App uses it).
+As mentioned above, the Web Container communicates with the DB, to cache the data it recieves via the direct API calls to the Mangement
+Server.</p>
+</section>
+<section id="what-it-does">
+<h3>What it does<a class="headerlink" href="#what-it-does" title="Permalink to this headline"></a></h3>
+<p>Checkpoint itself already provides good bulk management via SmartConsole and the actual Management Server itself. What it doesnt really
+do really good however, is <strong>Bulk Deployment</strong>. And this is what ReDeploy’s main focus is.</p>
+<p>Once finished, it should be possible to use our interface to check on all firewalls and quickly deploy configs to multiple firewall
+instances at once. How many options will be integrated in our interface remains a subject to change for now.</p>
+</section>
+</section>
+<section id="component-choices">
+<h2>Component Choices<a class="headerlink" href="#component-choices" title="Permalink to this headline"></a></h2>
+<section id="surrealdb">
+<h3>SurrealDB<a class="headerlink" href="#surrealdb" title="Permalink to this headline"></a></h3>
+<a class="reference external image-reference" href="https://surrealdb.com"><img alt="_images/surrealdb_icon.png" class="float align-right" src="_images/surrealdb_icon.png" style="width: 25.700000000000003px; height: 30.0px;" /></a>
+<p>This was a rather quick decision, with the main focus on <em>“Hey, let’s just try something new?”</em>. Of course we could have just chosen any
+generic database, especially for this project that only really uses it for caching purposes. But this is exactly where on factor matters
+the most: <strong>Speed</strong></p>
+<p>With SurrealDB being a relatively new database written in Rust, it can definitely deliver when it comes to speed. It also has many other
+features, which we didn’t even scratch the surface of yet, simply because we won’t really need them.</p>
+<p>The downside to choosing this DB is however, that due to its early beta-stage, there are still some issues and the client/server libraries
+are missing things that we have to implement ourselves.</p>
+</section>
+<section id="astro">
+<h3>Astro<a class="headerlink" href="#astro" title="Permalink to this headline"></a></h3>
+<a class="reference external image-reference" href="https://astro.build/"><img alt="_images/astro-logo-dark.png" class="float align-right" src="_images/astro-logo-dark.png" style="width: 120.0px; height: 31.400000000000002px;" /></a>
+<p>We want to keep things fast, so we opted for Astro. We don’t think there is currently a better way to develop web apps as quickly as you
+can with Astro. And most importantly you can use existing frameworks and languages you already know and love. It supports server-side
+rendering as well.</p>
+</section>
+<section id="deno">
+<h3>Deno<a class="headerlink" href="#deno" title="Permalink to this headline"></a></h3>
+<a class="reference external image-reference" href="https://deno.land/"><img alt="_images/deno.png" class="float align-right" src="_images/deno.png" style="width: 61.44px; height: 61.44px;" /></a>
+<p>As mentioned above, for server-side rendering, you need a proper adapter. And as everybody hates node.js anyways, why not choose something
+better and new? This is where Deno comes in (also written in Rust), which features speed and security improvements compared to node.js for
+example.</p>
+</section>
+<section id="svelte">
+<h3>Svelte<a class="headerlink" href="#svelte" title="Permalink to this headline"></a></h3>
+<a class="reference external image-reference" href="https://svelte.dev/"><img alt="_images/svelte_icon.png" class="float align-right" src="_images/svelte_icon.png" style="width: 39.9px; height: 48.0px;" /></a>
+<p>Even though we could exclusively use Astro syntax for our application, for more complex tasks we chose Svelte. This was also rather a quick
+decision, as none of us really learned a JS-Framework up until now, so we chose what was best recommended by the community and aquired the
+necessary knowledge for it.</p>
+</section>
+<section id="checkpoint">
+<h3>Checkpoint<a class="headerlink" href="#checkpoint" title="Permalink to this headline"></a></h3>
+<a class="reference external image-reference" href="https://www.checkpoint.com/"><img alt="_images/checkpoint.png" class="float align-right" src="_images/checkpoint.png" style="width: 91.32px; height: 40.92px;" /></a>
+<p>As this project serves as a predecessor for an upcoming project, where we will focus on a different brand of firewalls, we had to choose
+something other than that for now. Our school is partnered with CheckPoint and we need to learn it next year anyways, so why not focus our
+app around it?</p>
+<p>The thing is that CheckPoint already provides some features for mass configuration and building another wrapper around the management
+server might be a bit overkill. But things can always be improved if there is an API for it, so we will primarly focus on bulk deployment.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="ReDeploy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="web.html" class="btn btn-neutral float-right" title="Web Interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ReDeploy Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

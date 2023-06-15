@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkpoint &mdash; ReDeploy 1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Android App" href="android.html" />
+    <link rel="prev" title="Database" href="database.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ReDeploy
+          </a>
+              <div class="version">
+                2.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About ReDeploy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Checkpoint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#complications">Complications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#api-requests">API Requests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="android.html">Android App</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ReDeploy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Checkpoint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/checkpoint.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <a class="reference internal image-reference" href="_images/checkpoint.png"><img alt="_images/checkpoint.png" class="align-center" src="_images/checkpoint.png" style="width: 304.40000000000003px; height: 136.4px;" /></a>
+<section id="id1">
+<h1><a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a><a class="headerlink" href="#id1" title="Permalink to this headline"></a></h1>
+<p>To make a proper Manager for <a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> appliances we need to understand the
+<a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> API. Helping us with that are the CCSA (<a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a>
+Certified Security Administrator) and the CCSE (<a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> Certified Security Expert) courses,
+with whom we will be capable of understanding said API. Besides the understanding, we need an environment fitting to the IP-Addresses
+coupled to the mandatory licenses for <a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> appliances.</p>
+<section id="complications">
+<h2>Complications<a class="headerlink" href="#complications" title="Permalink to this headline"></a></h2>
+<p>It was around now I noticed that something wasn´t right. As you may have noticed I changed onto the Gateway (as seen in the screenshots
+above =&gt; GW), but commands that were supposed to work didn´t work. After consulting Prof. Rabensteiner I took new VMs from our school
+share that were already installed and ready to go.</p>
+<p><a class="reference external" href="https://www.checkpoint.com/">Checkpoint</a> Environment
+Before continuing with the lab, we want to be able to access the appliances all the time and not only during project class. To this
+point we run the VMs on one PC in school, but can´t leave it running because it´s obviously needed by other people too. To solve this
+problem, we have two possible solutions:</p>
+<p><strong>First solution: Environment in the Schools DMZ</strong></p>
+<p>As we already have a VPN into the DMZ for another class, it stands to reason that we set our environment up there. After talking to
+Prof. Hufsky, we have a good idea of how the topology needs to look like for our undertaking to work:</p>
+<figure class="align-default">
+<img alt="_images/checkpoint_04.png" src="_images/checkpoint_04.png" />
+</figure>
+<p>The A-GUI and A-SMS both have a second leg into the school Network directly. The management server temporarily via reverse proxy for
+initial config and the Client to get a GUI via RDP. Because the A-SMS and A-GW01 are both vmware VMs, it could turn out to be rather
+inconvenient to put those into the network above.</p>
+<p><strong>Second solution: Rent two PCs</strong></p>
+<p>The simpler solution would be renting two PCs from school and one of the team taking them home to himself, from where he could reach
+the VMs all the time, but this has yet to be discussed with the professors.</p>
+<p><strong>Final Solution: Run it locally</strong></p>
+<p>It might sound contradictory at first, but it is the most efficient way of running the Checkpoint environment. As prices for RAM are
+very low at the moment, everyone in the team (who hadn´t had it before) was able to upgrade their RAM to 32GB, which is recommended
+to guarantee smooth usage of the VMs. Instead of having one instance that is available to everyone, a template instance is created,
+from which everyone takes a copy. Now, if there is any problem with the instance, it is possible to just create a new instance ready
+to use.</p>
+<p>At the moment, the environment looks like the following:</p>
+<figure class="align-default">
+<img alt="_images/checkpoint_05.png" src="_images/checkpoint_05.png" />
+</figure>
+</section>
+<section id="api-requests">
+<h2>API Requests<a class="headerlink" href="#api-requests" title="Permalink to this headline"></a></h2>
+<p>To make the Firewall Manager interact with the appliances, we need the API. Checkpoint has different APIs for different usecases, relevant for us are only the GAIA API and the Management API. The latter of them is for, as you may have guessed by the name, executing management calls via the management server. Therefore with this one we will only be able to interact with said management server. The GAIA API is the somewhat most fundamental one, because it interacts with the OS of the Checkpoint appliance, Gaia, directly.
+For example, to make a basic request for the hostname of an appliance via the GAIA API:</p>
+<ul class="simple">
+<li><p>First, we need to get the sid</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CHKP_SID=$(curl -s -k -X POST -H &quot;Content-Type:application/json&quot; -d &#39;{&quot;user&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;p@ssw0rd&quot;}&#39; https://10.1.1.101/gaia_api/login | jq &#39;.sid&#39; | tr -d &#39;&quot;&#39;)
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Then, we can get the hostname</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">k</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;X-chkp-sid:$</span><span class="si">{CHKP_SID}</span><span class="s2">&quot;</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> <span class="o">-</span><span class="n">d</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">10.1.1.101</span><span class="p">:</span><span class="mi">443</span><span class="o">/</span><span class="n">gaia_api</span><span class="o">/</span><span class="n">v1</span><span class="mf">.5</span><span class="o">/</span><span class="n">show</span><span class="o">-</span><span class="n">hostname</span> <span class="o">|</span> <span class="n">jq</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <cite>{}</cite> is important, because else the Checkpoint appliance doesn´t know where to store the response.
+In general the CheckPoint API can be very, very specific about what the request body contains</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="database.html" class="btn btn-neutral float-left" title="Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="android.html" class="btn btn-neutral float-right" title="Android App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ReDeploy Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
