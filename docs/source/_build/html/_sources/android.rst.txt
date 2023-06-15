@@ -92,7 +92,8 @@ In android Studio we have 3 different types of test cases, the Unit-Tests, The I
 .. figure:: /img/android/test_cases.png
     :scale: 80%
 
-
+.. figure:: /img/android/test_cases2.png
+    :scale: 100%
 
 .. ---------- Work Distribution ----------
 
