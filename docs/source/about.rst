@@ -14,21 +14,27 @@ Flowchart
 
 To quickly understand how ReDeploy operates, consult the flowchart below:
 
-.. figure:: /img/flowchart.png
+.. figure:: /img/flowchart-new.png
     :scale: 60%
 
 How it works
 ------------
 
-The entire stack is meant to be fully dockerized. It consists of to containers, namely the DB container and the Web container.
-These two interact via the internal docker network. The DB traffic itself never leaves this network and is also mapped to no host port.
+The entire stack is meant to be fully dockerized. It consists of four containers, namely the DB container, Web container, Fetching Container
+and a Reverse Proxy.
+Most traffic goes through the internal docker network. The DB traffic itself never leaves this network and is also mapped to no host port.
 We primarly use the DB for caching, to reduce network traffic to the actual endpoints and speed things up even if there are more devices
 to manage. The goal is to fetch fresh data as few times as possible and use cache data whenever we can.
 
-The Web Container has direct API communications with the Gaia Management Server, which are handled by the Svelte backend. It also provides
-it's own API endpoint which can be accessed by clients (in this case our Android App uses it).
-As mentioned above, the Web Container communicates with the DB, to cache the data it recieves via the direct API calls to the Mangement
-Server.
+The Deno Container has direct API communicates with the CheckPoint Firewall Appliances directly, as these already provide HTTPS and therefore
+are the only traffic that leaves the stack without the need of going through our proxy. It will only make these direct requests if it needs to,
+for example when we make changes that need to be sent to the endpoint anyways. Wherever it can, it uses cached data from the DB Container. The
+DB Network Traffic is proxied, so we also have encrypted traffic inside the internal Docker Network, which theoretically isn't really necessary,
+but nice to have nonetheless.
+The Fetching Container provides it's own API endpoint which can be accessed by the Web Container. We do this because we want to offload most
+of the "heavy lifting" to the seperate Deno Fetching Container.
+Additionally, the Web Container also provides an API, which is exposed to the outside network, just like the actual Interface. This endpoint
+is used by our Android App, but can also be used by scripts f.E. It implements standard user/pass Authentication and JWT.
 
 What it does
 ------------
@@ -37,7 +43,7 @@ Checkpoint itself already provides good bulk management via SmartConsole and the
 do really good however, is **Bulk Deployment**. And this is what ReDeploy's main focus is.
 
 Once finished, it should be possible to use our interface to check on all firewalls and quickly deploy configs to multiple firewall
-instances at once. How many options will be integrated in our interface remains a subject to change for now.
+instances at once. How many options will be integrated in our interface remains a subject to change.
 
 Component Choices
 =================
@@ -91,7 +97,9 @@ Deno
 
 As mentioned above, for server-side rendering, you need a proper adapter. And as everybody hates node.js anyways, why not choose something
 better and new? This is where Deno comes in (also written in Rust), which features speed and security improvements compared to node.js for
-example.
+example. It's really convenient not having to rely on the node.js dependency hell when building simple things like an API Endpoint with JWT
+and other simple integrations as Deno provides it's own libraries for the most common and most needed stuff. This is why it also powers our
+additional Fetching Container.
 
 .. ---------- Svelte ---------- 
 

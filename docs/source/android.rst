@@ -9,15 +9,15 @@ Functions
 - Caching devices on a local database
 - Basic config edits
 
-
 Concept
-=======
-The Device Manager app is an Android application designed to provide users with a convenient way to manage their devices. It allows users to view a list of their registered devices, as well as create new device entries. The app aims to simplify device management tasks and provide an intuitive user experience.
+-------
 
+The Device Manager app is an Android application designed to provide users with a convenient way to manage their devices.
+It allows users to view a list of their registered devices, as well as create new device entries. The app aims to simplify
+device management tasks.
 
-
-Overview of the Project
-=======================
+Overview
+--------
 
 **Current Main components:**
 
@@ -31,76 +31,48 @@ Overview of the Project
 Login Page
 ==========
 
-What does the Login Page do
----------------------------
-
-The Login Page is for receiving an Token from the service that we access with the Api. It consists of 2 User Inputs where the User provides an API-URL and an PSK so that we can try to receive our token over an API-Call.
+The Login Page is for receiving an Token from the service that we access with the Api. It consists of 2 User Inputs where
+the User provides an API-URL and an PSK so that we can try to receive our token over an API-Call.
 
 .. figure:: /img/android/login_page.png
     :scale: 40%
 
-
 Main Page
 =========
 
-What does the Main Page do
---------------------------
-
-In the Main Page we gain access to our device listing which is processed after we correctly pass the login page and receive our token. Aswell as that there is another button which works as a Creation Button with which we can add Firewall allready existing out there, to our listing over IP.
-
+In the Main Page we gain access to our device listing which is processed after we correctly pass the login page and
+receive our token. Aswell as that there is another button which works as a Creation Button with which we can add Firewall
+allready existing out there, to our listing over IP.
 
 .. figure:: /img/android/main_page.png
     :scale: 40%
 
-
-
 Device Listing
 ==============
 
-What does the Device Listing do
--------------------------------
-
-The Device Listing works by sending an API-Listing-Call to our service so that the service responds which the known firewalls which are listed inside the DB. These Firewalls are then Listed in the Main Page
+The Device Listing works by sending an API-Listing-Call to our service so that the service responds which the known
+firewalls which are listed inside the DB. These Firewalls are then Listed in the Main Page
 
 .. figure:: /img/android/device_listing.png
     :scale: 40%
 
-
-
 Device Creation
 ===============
 
-What does the Device Creation do
---------------------------------
-
-The Device Creation is there for adding allready existing Firewalls into our Listing which we can access localy over IP. Those Firewalls are then added to the DB which results in them being listed after Addition.
-
+The Device Creation is there for adding allready existing Firewalls into our Listing which we can access localy over IP.
+Those Firewalls are then added to the DB which results in them being listed after Addition.
 
 .. figure:: /img/android/device_creation.png
     :scale: 40%
 
-
-
 Test Case
 =========
 
-What do the Test Cases do
--------------------------
-
-In android Studio we have 3 different types of test cases, the Unit-Tests, The Instrumentation-Tests and the UI-Tests. The Test Cases test to see if the Android app should properly work.
+In android Studio we have 3 different types of test cases, the Unit-Tests, The Instrumentation-Tests and the UI-Tests.
+The Test Cases test to see if the Android app should properly work.
 
 .. figure:: /img/android/test_cases.png
     :scale: 80%
 
 .. figure:: /img/android/test_cases2.png
     :scale: 100%
-
-.. ---------- Work Distribution ----------
-
-Work Distribution
------------------
-
-- Fabian Teppan:  API Endpoint 
-- Robin Spreitzer: Frond End Design
-- Malik Fazlic: Unit Testing 
-- Erik Simcic: API Handling

@@ -6,9 +6,6 @@
 ReDeploy
 ********
 
-.. note::
-	This project is under active development.
-
 Team Members
 		- Teppan Fabian 
 		- Robin Spreitzer
@@ -27,5 +24,6 @@ Table of Contents
     about.rst
     web.rst
     database.rst
+    docker.rst
     checkpoint.rst
     android.rst
